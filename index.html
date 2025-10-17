@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signfiy - Bridging Communication Gap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Three.js for 3D Avatar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Face-api.js for facial expressions -->
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-hands"></i> Signfiy</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sign-to-speech" class="nav-link">Sign to Speech</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#speech-to-sign" class="nav-link">Speech to Sign</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#learn" class="nav-link">Learn</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Bridging the <span class="highlight">Communication Gap</span>
+                </h1>
+                <h2 class="hero-subtitle">Sign Language to Speech & Vice Versa</h2>
+                <p class="hero-description">
+                    Revolutionary AI-powered platform that translates sign language to speech 
+                    and converts speech to sign language avatars. Making communication 
+                    accessible for everyone.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#sign-to-speech" class="btn btn-primary">
+                        <i class="fas fa-video"></i> Start Signing
+                    </a>
+                    <a href="#speech-to-sign" class="btn btn-secondary">
+                        <i class="fas fa-microphone"></i> Start Speaking
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="communication-flow">
+                    <div class="flow-item">
+                        <div class="flow-icon">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <span>Sign Language</span>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="flow-item">
+                        <div class="flow-icon">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <span>Speech</span>
+                    </div>
+                </div>
+                <div class="ai-badge">
+                    <i class="fas fa-brain"></i>
+                    <span>Powered by AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Real-time Sign Recognition</h3>
+                    <p>Advanced computer vision technology recognizes sign language gestures in real-time with high accuracy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Speech Recognition</h3>
+                    <p>Convert spoken words into text and then into animated sign language gestures using AI avatars.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <h3>3D Avatar System</h3>
+                    <p>Interactive 3D avatars that perform sign language gestures with natural movements and expressions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Multiple Sign Languages</h3>
+                    <p>Support for various sign languages including ASL, BSL, and many more regional variations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learning Mode</h3>
+                    <p>Educational features to help users learn sign language through interactive lessons and practice.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Responsive</h3>
+                    <p>Works seamlessly on all devices - desktop, tablet, and mobile for accessibility anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign to Speech Section -->
+    <section id="sign-to-speech" class="sign-to-speech">
+        <div class="container">
+            <h2 class="section-title">Sign to Speech Translation</h2>
+            <div class="translation-container">
+                <div class="camera-section">
+                    <div class="camera-preview">
+                        <video id="signVideo" autoplay muted></video>
+                        <div class="camera-overlay">
+                            <div class="detection-box" id="detectionBox"></div>
+                            <div class="status-indicator" id="statusIndicator">
+                                <i class="fas fa-circle"></i>
+                                <span>Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="camera-controls">
+                        <button id="startCamera" class="btn btn-primary">
+                            <i class="fas fa-play"></i> Start Camera
+                        </button>
+                        <button id="stopCamera" class="btn btn-secondary" disabled>
+                            <i class="fas fa-stop"></i> Stop Camera
+                        </button>
+                        <button id="captureSign" class="btn btn-accent" disabled>
+                            <i class="fas fa-hand-paper"></i> Capture Sign
+                        </button>
+                    </div>
+                </div>
+                <div class="translation-output">
+                    <div class="output-section">
+                        <h3>Detected Text</h3>
+                        <div class="text-output" id="detectedText">
+                            Start signing to see the translation...
+                        </div>
+                    </div>
+                    <div class="output-section">
+                        <h3>Speech Output</h3>
+                        <div class="speech-controls">
+                            <button id="playSpeech" class="btn btn-primary" disabled>
+                                <i class="fas fa-volume-up"></i> Play Speech
+                            </button>
+                            <button id="downloadAudio" class="btn btn-secondary" disabled>
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                        <div class="audio-visualizer" id="audioVisualizer">
+                            <div class="sound-wave"></div>
+                            <div class="sound-wave"></div>
+                            <div class="sound-wave"></div>
+                            <div class="sound-wave"></div>
+                            <div class="sound-wave"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speech to Sign Section -->
+    <section id="speech-to-sign" class="speech-to-sign">
+        <div class="container">
+            <h2 class="section-title">Speech to Sign Translation</h2>
+            <div class="translation-container reverse">
+                <div class="avatar-section">
+                    <div class="avatar-container">
+                        <!-- 3D Avatar Canvas -->
+                        <div class="avatar-3d-container">
+                            <canvas id="avatarCanvas" width="400" height="500"></canvas>
+                            <div class="avatar-status" id="avatarStatus">
+                                <div class="status-indicator">
+                                    <i class="fas fa-circle"></i>
+                                    <span>Ready</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Controls -->
+                        <div class="avatar-controls">
+                            <button id="startListening" class="btn btn-primary">
+                                <i class="fas fa-microphone"></i> Start Listening
+                            </button>
+                            <button id="stopListening" class="btn btn-secondary" disabled>
+                                <i class="fas fa-microphone-slash"></i> Stop Listening
+                            </button>
+                            <button id="animateAvatar" class="btn btn-accent">
+                                <i class="fas fa-play"></i> Demo Animation
+                            </button>
+                        </div>
+                        
+                        <!-- Sign Language Dictionary -->
+                        <div class="sign-dictionary">
+                            <h4>Common Signs</h4>
+                            <div class="sign-buttons">
+                                <button class="sign-btn" data-sign="hello">👋 Hello</button>
+                                <button class="sign-btn" data-sign="thank-you">🙏 Thank You</button>
+                                <button class="sign-btn" data-sign="please">🤲 Please</button>
+                                <button class="sign-btn" data-sign="yes">👍 Yes</button>
+                                <button class="sign-btn" data-sign="no">👎 No</button>
+                                <button class="sign-btn" data-sign="help">🆘 Help</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="speech-input">
+                    <div class="input-section">
+                        <h3>Speech Input</h3>
+                        <div class="microphone-visualizer">
+                            <div class="mic-circle" id="micCircle">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div class="sound-rings">
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                            </div>
+                        </div>
+                        <div class="recognition-status" id="recognitionStatus">
+                            Click "Start Listening" to begin...
+                        </div>
+                    </div>
+                    <div class="input-section">
+                        <h3>Text Input</h3>
+                        <textarea id="textInput" placeholder="Type your message here to convert to sign language..."></textarea>
+                        <button id="convertText" class="btn btn-primary">
+                            <i class="fas fa-hands"></i> Convert to Sign
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn Section -->
+    <section id="learn" class="learn">
+        <div class="container">
+            <h2 class="section-title">Learn Sign Language</h2>
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <div class="learning-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Basic Alphabet</h3>
+                    <p>Learn the fundamental sign language alphabet with interactive demonstrations.</p>
+                    <button class="btn btn-primary">Start Learning</button>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Common Phrases</h3>
+                    <p>Master everyday phrases and expressions used in sign language communication.</p>
+                    <button class="btn btn-primary">Start Learning</button>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Practice Mode</h3>
+                    <p>Test your knowledge with interactive quizzes and gesture recognition exercises.</p>
+                    <button class="btn btn-primary">Start Practice</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Signfiy</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Signfiy is an innovative platform designed to bridge the communication gap 
+                        between deaf and hard-of-hearing individuals and the hearing community. 
+                        Our mission is to create a more inclusive world through technology.
+                    </p>
+                    <p>
+                        Using cutting-edge artificial intelligence, computer vision, and natural 
+                        language processing, we provide real-time translation services that make 
+                        communication accessible and natural for everyone.
+                    </p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h3>95%</h3>
+                            <p>Accuracy Rate</p>
+                        </div>
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Sign Languages</p>
+                        </div>
+                        <div class="stat">
+                            <h3>1M+</h3>
+                            <p>Users Worldwide</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="accessibility-symbols">
+                        <div class="symbol">
+                            <i class="fas fa-universal-access"></i>
+                            <span>Accessibility</span>
+                        </div>
+                        <div class="symbol">
+                            <i class="fas fa-heart"></i>
+                            <span>Inclusion</span>
+                        </div>
+                        <div class="symbol">
+                            <i class="fas fa-globe"></i>
+                            <span>Global Reach</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-hands"></i> Signfiy</h3>
+                    <p>Bridging communication gaps through innovative technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#learn">Learn</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@signfiy.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Signfiy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
