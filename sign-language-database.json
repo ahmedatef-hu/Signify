@@ -1,0 +1,411 @@
+{
+  "project": {
+    "name": "Signfiy - نظام لغة الإشارة",
+    "description": "منصة ذكية لترجمة لغة الإشارة إلى صوت والعكس باستخدام الذكاء الاصطناعي",
+    "version": "1.0.0",
+    "features": [
+      "التعرف على لغة الإشارة من الكاميرا",
+      "تحويل الصوت إلى لغة إشارة عبر أفاتار 3D",
+      "دعم 16 إشارة مختلفة",
+      "أفاتار ثلاثي الأبعاد واقعي",
+      "نظام تدريب تفاعلي"
+    ]
+  },
+  
+  "signs": {
+    "questions": [
+      {
+        "id": 1,
+        "name_ar": "كم الساعة الآن؟",
+        "name_en": "What time is it?",
+        "emoji": "🕐",
+        "category": "أسئلة",
+        "accuracy": "85%",
+        "description": "قبضة عند المعصم + حركة دائرية",
+        "steps": [
+          "اعمل قبضة بيدك اليمنى ✊",
+          "ضعها أمام معصمك الأيسر ⌚",
+          "حركها في دائرة صغيرة 🔄",
+          "2-3 دورات بطيئة"
+        ],
+        "handshape": "Fist",
+        "position": "wrist",
+        "movement": "circular",
+        "facial_expression": "questioning",
+        "duration_ms": 1500
+      },
+      {
+        "id": 2,
+        "name_ar": "من هذا؟",
+        "name_en": "Who is this?",
+        "emoji": "❓",
+        "category": "أسئلة",
+        "accuracy": "85%",
+        "description": "يد ممدودة + حركة للأعلى والأسفل",
+        "steps": [
+          "افتح يدك بالكامل 🖐️",
+          "ضعها أمام جسمك",
+          "حركها للأعلى والأسفل ⬆️⬇️",
+          "2-3 مرات ببطء"
+        ],
+        "handshape": "Open palm",
+        "position": "front-center",
+        "movement": "up-down",
+        "facial_expression": "questioning",
+        "duration_ms": 1200
+      },
+      {
+        "id": 3,
+        "name_ar": "فين؟",
+        "name_en": "Where?",
+        "emoji": "📍",
+        "category": "أسئلة",
+        "accuracy": "85%",
+        "description": "سبابة يمين-يسار",
+        "steps": [
+          "ارفع سبابتك فقط ☝️",
+          "حركها يمين ويسار ↔️",
+          "حركة بطيئة ومنتظمة"
+        ],
+        "handshape": "Index finger",
+        "position": "front-center",
+        "movement": "left-right",
+        "facial_expression": "questioning",
+        "duration_ms": 1000
+      },
+      {
+        "id": 4,
+        "name_ar": "إمتى؟",
+        "name_en": "When?",
+        "emoji": "📅",
+        "category": "أسئلة",
+        "accuracy": "80%",
+        "description": "سبابة حركة دائرية صغيرة",
+        "steps": [
+          "ارفع سبابتك فقط ☝️",
+          "حركها في دائرة صغيرة 🔄",
+          "دائرة واحدة أو اثنتين"
+        ],
+        "handshape": "Index finger",
+        "position": "front-center",
+        "movement": "circular-small",
+        "facial_expression": "questioning",
+        "duration_ms": 1000
+      },
+      {
+        "id": 5,
+        "name_ar": "ايه؟",
+        "name_en": "What?",
+        "emoji": "❔",
+        "category": "أسئلة",
+        "accuracy": "85%",
+        "description": "كف مفتوح يمين-يسار",
+        "steps": [
+          "افتح كفك بالكامل 🖐️",
+          "حركه يمين ويسار ↔️",
+          "حركة أفقية بطيئة"
+        ],
+        "handshape": "Open palm",
+        "position": "front-center",
+        "movement": "left-right",
+        "facial_expression": "questioning",
+        "duration_ms": 1000
+      }
+    ],
+    
+    "greetings": [
+      {
+        "id": 6,
+        "name_ar": "مرحباً",
+        "name_en": "Hello",
+        "emoji": "👋",
+        "category": "تحيات",
+        "accuracy": "90%",  
+        "description": "كف مفتوح + تلويح",
+        "steps": [
+          "افتح كفك 🖐️",
+          "لوح يمين ويسار",
+          "حركة ودية"
+        ],
+        "handshape": "Open palm",
+        "position": "front-center",
+        "movement": "wave",
+        "facial_expression": "friendly",
+        "duration_ms": 600
+      },
+      {
+        "id": 7,
+        "name_ar": "سلام",
+        "name_en": "Peace",
+        "emoji": "✌️",
+        "category": "تحيات",
+        "accuracy": "85%",
+        "description": "إشارة V",
+        "steps": [
+          "ارفع السبابة والوسطى ✌️",
+          "اقفل باقي الأصابع",
+          "شكل V واضح"
+        ],
+        "handshape": "V sign",
+        "position": "front-center",
+        "movement": "hold",
+        "facial_expression": "friendly",
+        "duration_ms": 600
+      },
+      {
+        "id": 8,
+        "name_ar": "شكراً",
+        "name_en": "Thank you",
+        "emoji": "🙏",
+        "category": "تحيات",
+        "accuracy": "85%",
+        "description": "راحة اليد من الذقن للأمام",
+        "steps": [
+          "افتح كفك 🖐️",
+          "المس ذقنك",
+          "حرك يدك للأمام"
+        ],
+        "handshape": "Open palm",
+        "position": "chin-to-forward",
+        "movement": "forward",
+        "facial_expression": "grateful",
+        "duration_ms": 700
+      }
+    ],
+    
+    "responses": [
+      {
+        "id": 9,
+        "name_ar": "نعم",
+        "name_en": "Yes",
+        "emoji": "👍",
+        "category": "إجابات",
+        "accuracy": "90%",
+        "description": "إبهام للأعلى",
+        "steps": [
+          "اقفل قبضتك ✊",
+          "ارفع الإبهام للأعلى 👍",
+          "ثابت أو حركة بسيطة"
+        ],
+        "handshape": "Thumbs up",
+        "position": "front-center",
+        "movement": "hold",
+        "facial_expression": "affirmative",
+        "duration_ms": 500
+      },
+      {
+        "id": 10,
+        "name_ar": "لا",
+        "name_en": "No",
+        "emoji": "👎",
+        "category": "إجابات",
+        "accuracy": "90%",
+        "description": "إبهام للأسفل",
+        "steps": [
+          "اقفل قبضتك ✊",
+          "اخفض الإبهام للأسفل 👎",
+          "ثابت أو حركة بسيطة"
+        ],
+        "handshape": "Thumbs down",
+        "position": "front-center",
+        "movement": "hold",
+        "facial_expression": "negative",
+        "duration_ms": 500
+      },
+      {
+        "id": 11,
+        "name_ar": "تمام",
+        "name_en": "OK",
+        "emoji": "👌",
+        "category": "إجابات",
+        "accuracy": "85%",
+        "description": "دائرة بالإبهام والسبابة",
+        "steps": [
+          "اعمل دائرة بالإبهام والسبابة 👌",
+          "افتح باقي الأصابع",
+          "علامة OK"
+        ],
+        "handshape": "OK sign",
+        "position": "front-center",
+        "movement": "hold",
+        "facial_expression": "positive",
+        "duration_ms": 500
+      },
+      {
+        "id": 12,
+        "name_ar": "انتبه",
+        "name_en": "Attention",
+        "emoji": "☝️",
+        "category": "إجابات",
+        "accuracy": "80%",
+        "description": "سبابة للأعلى",
+        "steps": [
+          "ارفع سبابتك فقط ☝️",
+          "للأعلى فوق الرأس",
+          "حركة بسيطة للأعلى والأسفل"
+        ],
+        "handshape": "Index finger",
+        "position": "above-head",
+        "movement": "up-down",
+        "facial_expression": "alert",
+        "duration_ms": 600
+      }
+    ],
+    
+    "actions": [
+      {
+        "id": 13,
+        "name_ar": "تعالى",
+        "name_en": "Come here",
+        "emoji": "👋",
+        "category": "أفعال",
+        "accuracy": "80%",
+        "description": "كف يسحب ناحيتك",
+        "steps": [
+          "افتح كفك 🖐️",
+          "اسحبه نحوك",
+          "حركة دعوة"
+        ],
+        "handshape": "Open palm",
+        "position": "front-center",
+        "movement": "pull-toward",
+        "facial_expression": "inviting",
+        "duration_ms": 1000
+      },
+      {
+        "id": 14,
+        "name_ar": "روح",
+        "name_en": "Go away",
+        "emoji": "👉",
+        "category": "أفعال",
+        "accuracy": "80%",
+        "description": "كف يندفع للأمام",
+        "steps": [
+          "افتح كفك 🖐️",
+          "ادفعه للأمام",
+          "حركة حازمة"
+        ],
+        "handshape": "Open palm",
+        "position": "front-center",
+        "movement": "push-away",
+        "facial_expression": "firm",
+        "duration_ms": 800
+      },
+      {
+        "id": 15,
+        "name_ar": "أكل",
+        "name_en": "Eat",
+        "emoji": "🍽️",
+        "category": "أفعال",
+        "accuracy": "80%",
+        "description": "ضم الأصابع للفم",
+        "steps": [
+          "اضم أصابعك 🤏",
+          "قربها من فمك",
+          "حركة الأكل"
+        ],
+        "handshape": "Pinched fingers",
+        "position": "mouth",
+        "movement": "tap-twice",
+        "facial_expression": "neutral",
+        "duration_ms": 800
+      },
+      {
+        "id": 16,
+        "name_ar": "شرب",
+        "name_en": "Drink",
+        "emoji": "🥤",
+        "category": "أفعال",
+        "accuracy": "75%",
+        "description": "حركة كوب للفم",
+        "steps": [
+          "اعمل قبضة خفيفة 🤜",
+          "قربها من فمك",
+          "كأنك تشرب من كوب"
+        ],
+        "handshape": "C shape",
+        "position": "mouth",
+        "movement": "tilt-up",
+        "facial_expression": "neutral",
+        "duration_ms": 800
+      }
+    ]
+  },
+  
+  "statistics": {
+    "total_signs": 16,
+    "categories": 4,
+    "average_accuracy": "85%",
+    "supported_languages": ["العربية", "English"],
+    "detection_methods": [
+      "MediaPipe Hands",
+      "Computer Vision",
+      "Motion Tracking"
+    ]
+  },
+  
+  "technical_details": {
+    "camera_detection": {
+      "library": "MediaPipe Hands",
+      "min_detection_confidence": 0.7,
+      "min_tracking_confidence": 0.7,
+      "max_hands": 2,
+      "cooldown_between_signs": "2 seconds"
+    },
+    "avatar_3d": {
+      "library": "Three.js",
+      "model_format": "GLB",
+      "animations": 15,
+      "bones_tracked": [
+        "rightarm",
+        "leftarm",
+        "righthand",
+        "lefthand",
+        "fingers",
+        "head"
+      ]
+    },
+    "speech_synthesis": {
+      "language": "ar-SA",
+      "rate": 0.9,
+      "pitch": 1,
+      "volume": 1
+    }
+  },
+  
+  "usage_tips": {
+    "camera_setup": [
+      "تأكد من وجود إضاءة جيدة",
+      "اجعل يدك في منتصف الكاميرا",
+      "استخدم خلفية بسيطة",
+      "حافظ على مسافة 50-70 سم من الكاميرا",
+      "اجعل الحركات بطيئة وواضحة"
+    ],
+    "best_practices": [
+      "انتظر ثانية بين كل إشارة وأخرى",
+      "حافظ على يدك في إطار الكاميرا",
+      "كرر الإشارة إذا لم تُكتشف",
+      "تدرب على الحركات قبل التسجيل"
+    ]
+  },
+  
+  "system_requirements": {
+    "browsers": [
+      "Chrome (الأفضل)",
+      "Edge",
+      "Firefox",
+      "Safari (قد يحتاج أذونات إضافية)"
+    ],
+    "devices": [
+      "الكمبيوتر (Webcam)",
+      "اللابتوب (Built-in Camera)",
+      "الهاتف (Front/Back Camera)",
+      "التابلت"
+    ],
+    "minimum_specs": {
+      "camera_resolution": "640x480",
+      "internet_connection": "Required for libraries",
+      "browser_permissions": ["Camera", "Microphone"]
+    }
+  }
+}
